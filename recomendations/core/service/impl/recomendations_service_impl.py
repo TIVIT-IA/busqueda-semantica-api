@@ -1,13 +1,16 @@
+from dotenv import load_dotenv
 from recomendations.config.tei_client import TEIClient
 from recomendations.core.service.recomendations_service import RecomendationsService
 from recomendations.core.repository.professional_repository import ProfessionalRepository
 from recomendations.schema.recomendation_schema import RequirementRequest
+import os
 
-
+load_dotenv()
 class RecomendationsServiceImpl(RecomendationsService):
 
     def __init__(self):
-        self.embeddings = TEIClient("http://localhost:8090")
+        tei_url = os.getenv("TEI_URL", "")
+        self.embeddings = TEIClient(tei_url)
         self.repo = ProfessionalRepository()
 
     async def recommend(self, t: RequirementRequest) -> dict:

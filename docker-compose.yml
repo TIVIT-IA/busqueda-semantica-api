@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+
+  ms-recomendations-api:
+    build: .
+    container_name: ms-recomendations-api
+    ports:
+      - "8095:8095"
+    env_file:
+      - .env
+    environment:
+      TEI_URL: http://localhost:8090
+    command: >
+      uvicorn main:app
+      --host 0.0.0.0
+      --port 8095
+    restart: unless-stopped
