@@ -1,0 +1,30 @@
+# --- Framework Web ---
+fastapi
+uvicorn[standard]
+
+# --- Async HTTP Client ---
+aiohttp
+
+# --- Entorno y configuración ---
+python-dotenv==1.0.1
+backoff==2.2.1
+
+# --- Configuración y validación ---
+pydantic
+pydantic-settings
+
+# --- Inyección de dependencias ---
+dependency-injector
+
+# --- Base de datos PostgreSQL / Supabase ---
+psycopg2-binary
+pgvector
+
+# --- Utilidades ---
+numpy
+
+# --- Async file IO ---
+aiofiles==23.2.1
+
+# --- Rate limiter ---
+aiolimiter==1.2.1
