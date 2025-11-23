@@ -1,9 +1,7 @@
 from typing import Callable
 from fastapi import APIRouter
 
-# -----------------------
-# Decoradores para endpoints
-# -----------------------
+
 def post(path: str):
     def wrapper(func: Callable):
         func._endpoint = {"method": "POST", "path": path}
@@ -16,9 +14,7 @@ def get(path: str):
         return func
     return wrapper
 
-# -----------------------
-# BaseController que registra métodos
-# -----------------------
+
 class BaseController:
     def __init__(self, prefix: str = ""):
         # Asegurarse de que prefix siempre sea string
@@ -37,9 +33,7 @@ class BaseController:
                     methods=[info["method"]]
                 )
 
-# -----------------------
-# Decorador de clase para router
-# -----------------------
+
 def router(prefix: str):
     def wrapper(cls):
         from recomendations.config.dependency_injection import Container

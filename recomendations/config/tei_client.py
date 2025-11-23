@@ -42,7 +42,7 @@ class TEIClient:
 
         return all_embeddings
 
-    # ⭐ NUEVO: método para generar un embedding simple en la API
+
     async def embed(self, text: str):
         async with aiohttp.ClientSession() as session:
             vectors = await self.embed_batch(session, [text])

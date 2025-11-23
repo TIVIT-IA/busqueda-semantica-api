@@ -32,7 +32,6 @@ class ProfessionalRepository:
             conn = psycopg2.connect(SUPABASE_POSTGRES_URL)
             cur = conn.cursor()
 
-            # NOTA: psycopg2 convierte automáticamente listas python -> array[] de Postgres
             cur.execute(SQL, (vector, limit))
 
             columns = [c[0] for c in cur.description] # type: ignore
